@@ -13,18 +13,18 @@ export class PostService {
   constructor(private http: HttpClient, private spinner:NgxSpinnerService) { }
 
   getAllPosts(): Observable<Array<PostModel>> {
-    return this.http.get<Array<PostModel>>('http://localhost:8080/api/posts/');
+    return this.http.get<Array<PostModel>>('http://localhost:8081/api/posts/');
   }
 
   createPost(postPayload: CreatePostPayload): Observable<any> {
-    return this.http.post('http://localhost:8080/api/posts/', postPayload);
+    return this.http.post('http://localhost:8081/api/posts/', postPayload);
   }
 
   getPost(id: number): Observable<PostModel> {
-    return this.http.get<PostModel>('http://localhost:8080/api/posts/' + id);
+    return this.http.get<PostModel>('http://localhost:8081/api/posts/' + id);
   }
 
   getAllPostsByUser(name: string): Observable<PostModel[]> {
-    return this.http.get<PostModel[]>('http://localhost:8080/api/posts/by-user/' + name);
+    return this.http.get<PostModel[]>('http://localhost:8081/api/posts/by-user/' + name);
   }
 }
